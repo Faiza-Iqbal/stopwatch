@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+*, p{
+  margin: 0;
+}
+span sub{
+  font-size: 40px;
+}
+hr {
+  border: none;
+  height: 2px;
+  background-color: #a0a0a1;
+  margin-bottom: 20px;
+}
+.button-wrapper {
+  padding: 20px 0px;
+}
+table{
+  width:100%;
+}
+.orange{
+  color: orange;
+}
+.red{
+  color: red;
+}
