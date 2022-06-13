@@ -43,7 +43,7 @@ const ControlButtons = ({
         ></RoundButton>
         <RoundButton
           css={
-            !startButton || currentStopWatchTime == 0
+            !startButton || currentStopWatchTime === 0
               ? defaultButton
               : activeBlueButton
           }

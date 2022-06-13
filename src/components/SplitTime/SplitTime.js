@@ -6,7 +6,7 @@ export const SplitTime = React.memo(({ splitTimeState }) => {
   return (
     <>
       {!splitTimeState && <StyledSplitTime>Split Time</StyledSplitTime>}
-      {splitTimeState != 0 && (
+      {splitTimeState !== 0 && (
         <StyledSplitTime>
           {currentTimeObject.hours}:{currentTimeObject.minutes}:
           {currentTimeObject.seconds}:{currentTimeObject.milliSeconds}
