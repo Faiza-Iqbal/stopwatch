@@ -1,6 +1,6 @@
 import React from "react";
 import { WrapperWithPadding } from "../../styles/WrapperWithPadding.style";
-import RoundButton from "./RoundButton";
+import RoundButton from "../RoundButton/RoundButton";
 // Importing button themes
 import {
   defaultButton,
@@ -8,7 +8,7 @@ import {
   activeOrangeButton,
   activeBlueButton,
   activePinkButton,
-} from "../../themes/buttonThemes";
+} from "../../buttonThemes/buttonThemes";
 // Control Buttons accepting props from Landing page component
 const ControlButtons = ({
   startClicked,

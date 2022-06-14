@@ -1,5 +1,5 @@
 import styled from "styled-components";
-export const StyledRoundButton = styled.button`
+export const RoundButtonStyled = styled.button`
   border-radius: 50%;
   width: 85px;
   height: 85px;

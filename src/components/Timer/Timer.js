@@ -1,18 +1,18 @@
 import React from "react";
 import useTimeConversion from "../../hooks/useTimeConversion";
-import { StyledSub } from "../../styles/subscript.style";
-import { StyledTimer } from "./Timer.style";
+import { SubStyled } from "../../styles/Subscript.style";
+import { TimerStyled } from "./Timer.style";
 
 const Timer = ({ totalMilliseconds }) => {
   const currentTimeObject = useTimeConversion(totalMilliseconds);
   return (
-    <StyledTimer>
+    <TimerStyled>
       {currentTimeObject.hours}:{currentTimeObject.minutes}:
       {currentTimeObject.seconds}:{currentTimeObject.milliSeconds[0]}
-      <StyledSub>
+      <SubStyled>
         {currentTimeObject.milliSeconds[1] + currentTimeObject.milliSeconds[2]}
-      </StyledSub>
-    </StyledTimer>
+      </SubStyled>
+    </TimerStyled>
   );
 };
 export default Timer;

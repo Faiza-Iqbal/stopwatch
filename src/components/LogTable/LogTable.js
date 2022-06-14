@@ -1,4 +1,5 @@
 import LogTableRow from "../LogTableRow/LogTableRow";
+
 const LogTable = ({ logArray }) => {
   return (
     <>

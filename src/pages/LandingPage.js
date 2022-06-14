@@ -1,19 +1,25 @@
 import React, { useState } from "react";
-import ControlButtons from "../components/Buttons/ControlButtons";
+// Importing Components
+import ControlButtons from "../components/ControlButtons/ControlButtons";
 import LogTable from "../components/LogTable/LogTable";
 import Separator from "../components/Separator/Separator";
 import { SplitTime } from "../components/SplitTime/SplitTime";
 import Timer from "../components/Timer/Timer";
+// Importing styled components
 import { ContentWrapper } from "../styles/ContentWrapper.style";
-import { StyledSection } from "../styles/Section.style";
+import { SectionStyled } from "../styles/Section.style";
+// Global variables
 let timerInterval; // for interval id
 let currentStopWatchTime = 0; // current stop watch total milliseconds
+
 const LandingPage = () => {
+  // states
   const [startButton, setStartButton] = useState(true); // For toggling Start & Pause
   const [splitTimeState, setSplitTimeState] = useState(currentStopWatchTime); // For Split time
-  const [totalMilliseconds, setTotalmilliseconds] =
+  const [totalMilliSeconds, setTotalMilliSeconds] =
     useState(currentStopWatchTime);
-  const [logArray, setLogTableArray] = useState([]); //For Log Table
+  const [logArray, setLogArray] = useState([]); //For Log Table
+
   //Function on click of "start" button
   const startClicked = () => {
     setStartButton(!startButton); // toggle start and paused button states
@@ -25,7 +31,7 @@ const LandingPage = () => {
       }, 25);
     } else if (!startButton) {
       // Pause was Clicked
-      setLogTableArray([
+      setLogArray([
         ...logArray,
         {
           serialNumber: logArray.length + 1,
@@ -38,14 +44,13 @@ const LandingPage = () => {
   };
   const startTimer = () => {
     currentStopWatchTime = currentStopWatchTime + 25; // get total time in mili seconds according to interval of 25ms
-    setTotalmilliseconds(currentStopWatchTime);
+    setTotalMilliSeconds(currentStopWatchTime); //Setting time state
   };
-
   //Function on click of "Split" button
   const splitClicked = () => {
     setSplitTimeState(currentStopWatchTime);
     // append to log table
-    setLogTableArray([
+    setLogArray([
       ...logArray,
       {
         serialNumber: logArray.length + 1,
@@ -54,15 +59,18 @@ const LandingPage = () => {
       },
     ]);
   };
+  // Function on click of "Reset" button
   const resetClicked = () => {
-    setTotalmilliseconds(0);
+    currentStopWatchTime = 0;
+    setTotalMilliSeconds(currentStopWatchTime);
     setSplitTimeState(0);
-    setLogTableArray([]);
+    setLogArray([]);
   };
+
   return (
-    <StyledSection>
+    <SectionStyled>
       <ContentWrapper>
-        <Timer totalMilliseconds={totalMilliseconds} />
+        <Timer totalMilliseconds={totalMilliSeconds} />
         <SplitTime splitTimeState={splitTimeState} />
         <ControlButtons
           startClicked={startClicked}
@@ -74,7 +82,7 @@ const LandingPage = () => {
         {logArray.length > 0 && <Separator />}
         <LogTable logArray={logArray} />
       </ContentWrapper>
-    </StyledSection>
+    </SectionStyled>
   );
 };
 export default LandingPage;
